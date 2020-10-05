@@ -22,4 +22,12 @@ class HomeController extends Controller
 
         return view('home', compact('employees'));
     }
+
+    public function show($id) {
+
+      $employee = Employee::findOrFail($id);
+
+      return view ('emp-show', compact('employee'));
+    }
+
 }

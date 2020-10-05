@@ -16,7 +16,11 @@
 
                     <ul>
                       @foreach ($employees as $employee)
-                        <li><a href="#">{{$employee -> name}} {{$employee -> surname}} </a></li>
+                        <li>
+                          <a href="{{route('emp-show', $employee -> id)}}">
+                            {{$employee -> name}} {{$employee -> surname}}
+                          </a>
+                        </li>
                       @endforeach
                     </ul>
 

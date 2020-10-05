@@ -17,17 +17,20 @@ class AddForeignKeys extends Migration
       Schema::table('employees', function (Blueprint $table){
         $table -> foreign('location_id', 'emp-loc')
                -> references('id')
-               -> on('locations');
+               -> on('locations')
+               -> onDelete('cascade');
 
       });
-      // stessa cosa succede qui sotto, ma in maniera diversa perchè è una relazione many to many 
+      // stessa cosa succede qui sotto, ma in maniera diversa perchè è una relazione many to many
       Schema::table('employee_task', function (Blueprint $table) {
         $table -> foreign('employee_id', 'tas-emp')
                -> references('id')
-               -> on('employees');
+               -> on('employees')
+               -> onDelete('cascade');
         $table -> foreign('task_id', 'emp-tas')
                -> references('id')
-               -> on('tasks');
+               -> on('tasks')
+               -> onDelete('cascade');
       });
     }
 
