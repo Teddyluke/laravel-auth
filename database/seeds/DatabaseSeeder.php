@@ -9,8 +9,15 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+     // questa funzione chiama i seeder che andranno poi a popolare le nostre tabelle con i dati fake
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        $this->call([
+
+          LocationSeeder::class,
+          EmployeeSeeder::class,
+          TaskSeeder::class
+
+        ]);
     }
 }

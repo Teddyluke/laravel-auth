@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Lista Impiegati') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,12 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <ul>
+                      @foreach ($employees as $employee)
+                        <li><a href="#">{{$employee -> name}} {{$employee -> surname}} </a></li>
+                      @endforeach
+                    </ul>
+
                 </div>
             </div>
         </div>
